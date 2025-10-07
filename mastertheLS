@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -tru --time=atime --indicator-style=slash --ignore='.*' | paste -sd,
