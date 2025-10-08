@@ -1,0 +1,1 @@
+curl -s https://acad.learn2earn.ng/assets/superhero/all.json | jq '.[1:4] | .[].name'
