@@ -3,16 +3,24 @@ package piscine
 import "github.com/01-edu/z01"
 
 func PrintComb2() {
-	for a := 0; a <= 98; a++ {
-		for b := a + 1; b <= 99; b++ {
-			z01.PrintRune('0' + a/10)
-			z01.PrintRune('0' + a%10)
-			z01.PrintRune(' ')
-			z01.PrintRune('0' + b/10)
-			z01.PrintRune('0' + b%10)
-			if a != 98 || b != 99 {
-				z01.PrintRune(',')
-				z01.PrintRune(' ')
+	for a1 := '0'; a1 <= '9'; a1++ { // tens of first number
+		for a2 := '0'; a2 <= '9'; a2++ { // ones of first number
+			for b1 := a1; b1 <= '9'; b1++ { // tens of second number
+				for b2 := '0'; b2 <= '9'; b2++ { // ones of second number
+					// skip invalid cases: second number must be > first
+					if b1 == a1 && b2 <= a2 {
+						continue
+					}
+					z01.PrintRune(a1)
+					z01.PrintRune(a2)
+					z01.PrintRune(' ')
+					z01.PrintRune(b1)
+					z01.PrintRune(b2)
+					if !(a1 == '9' && a2 == '8' && b1 == '9' && b2 == '9') {
+						z01.PrintRune(',')
+						z01.PrintRune(' ')
+					}
+				}
 			}
 		}
 	}
