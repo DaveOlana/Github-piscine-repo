@@ -8,17 +8,16 @@ func PrintComb2() {
 			for b1 := a1; b1 <= '9'; b1++ { // tens of second number
 				for b2 := '0'; b2 <= '9'; b2++ { // ones of second number
 					// skip invalid cases: second number must be > first
-					if b1 == a1 && b2 <= a2 {
-						continue
-					}
-					z01.PrintRune(a1)
-					z01.PrintRune(a2)
-					z01.PrintRune(' ')
-					z01.PrintRune(b1)
-					z01.PrintRune(b2)
-					if !(a1 == '9' && a2 == '8' && b1 == '9' && b2 == '9') {
-						z01.PrintRune(',')
+					if a1 < b1 || (a1 == b1 && a2 < b2) {
+						z01.PrintRune(a1)
+						z01.PrintRune(a2)
 						z01.PrintRune(' ')
+						z01.PrintRune(b1)
+						z01.PrintRune(b2)
+						if !(a1 == '9' && a2 == '8' && b1 == '9' && b2 == '9') {
+							z01.PrintRune(',')
+							z01.PrintRune(' ')
+						}
 					}
 				}
 			}
